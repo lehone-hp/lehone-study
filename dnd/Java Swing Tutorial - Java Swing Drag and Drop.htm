@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=900">
+<title>Java Swing Tutorial - Java Swing Drag and Drop</title>
+<meta http-equiv="content-style-type" content="text/css">
+<meta name="author" content="" demo="" source="" and="" support="" ltd.'="">
+<meta name="copyright" content="2013 Demo Source and Support Ltd.">
+<meta name="description" content="Java Swing Tutorial - Java Swing Drag and Drop">
+<meta name="keywords" content="Java Swing Tutorial - Java Swing Drag and Drop">
+<link rel="shortcut icon" href="http://www.java2s.com/style/favicon.ico">
+<link href="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/bootstrap.css" rel="stylesheet">
+<link href="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/longTutorial.css" rel="stylesheet">
+<script src="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/ca-pub-1130008796007602.js"></script><script src="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/jquery-1.js"></script>
+<script src="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/bootstrap.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script>
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+</script>	
+</head><body>
+<div class="container-fluid">
+   <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
+         <ul class="nav nav-sidebar"><li class="tag">Website Home</li><li><a href="http://www.java2s.com/">HOME</a></li><li class="tag">Introduction</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/index.htm">Java Swing Intro</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0030__Java_Swing_Shape.htm">Java Swing Shape</a></li><li class="tag">JFrame</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0400__Java_Swing_JFrame.htm">JFrame</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0410__Java_Swing_JFrame_Examples.htm">JFrame Examples</a></li><li class="tag">Layout</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0500__Java_Swing_Layout.htm">Java Swing Layout Managers</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0510__Java_Swing_FlowLayout.htm">FlowLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0520__Java_Swing_BorderLayout.htm">BorderLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0530__Java_Swing_CardLayout.htm">CardLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0540__Java_Swing_BoxLayout.htm">BoxLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0550__Java_Swing_GridLayout.htm">GridLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0560__Java_Swing_GridBagLayout.htm">GridBagLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0570__Java_Swing_SpringLayout.htm">SpringLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0580__Java_Swing_GroupLayout.htm">GroupLayout</a></li><li class="tag">Event</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0600__Java_Swing_Event.htm">Event</a></li><li class="tag">Basic Component</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0700__Java_Swing_Component.htm">JComponent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0710__Java_Swing_JButton.htm">JButton</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0720__Java_Swing_JLabel.htm">JLabel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0800__Java_Swing_JPanel.htm">JPanel</a></li><li class="tag">Text Component</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0810__Java_Swing_Text_Components.htm">Text Components</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0820__Java_Swing_JTextField.htm">JTextField</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0830__Java_Swing_JPasswordField.htm">JPasswordField</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0840__Java_Swing_JFormattedTextField.htm">JFormattedTextField</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0850__Java_Swing_JTextArea.htm">JTextArea</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0860__Java_Swing_JEditorPane.htm">JEditorPane</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0870__Java_Swing_JTextPane.htm">JTextPane</a></li><li class="tag">Selection Component</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0880__Java_Swing_JToggleButton.htm">JToggleButton</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0890__Java_Swing_JCheckBox.htm">JCheckBox</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0900__Java_Swing_JRadioButton.htm">JRadioButton</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0910__Java_Swing_JComboBox.htm">JComboBox</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0920__Java_Swing_JList.htm">JList</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0930__Java_Swing_JSpinner.htm">JSpinner</a></li><li class="tag">Advanced Component</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0940__Java_Swing_JScrollBar.htm">JScrollBar</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0950__Java_Swing_JScrollPane.htm">JScrollPane</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0960__Java_Swing_JProgressBar.htm">JProgressBar</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0970__Java_Swing_JSlider.htm">JSlider</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0980__Java_Swing_JSeparator.htm">JSeparator</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/0990__Java_Swing_Menu.htm">Menu</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1000__Java_Swing_JToolBar.htm">JToolBar</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1100__Java_Swing_JTable.htm">JTable</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1200__Java_Swing_JTree.htm">JTree</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1300__Java_Swing_JTabbedPane.htm">JTabbedPane</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1310__Java_Swing_JSplitPane.htm">JSplitPane</a></li><li class="tag">Dialog</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1320__Java_Swing_JDialog.htm">JDialog</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1330__Java_Swing_Standard_Dialogs.htm">Standard Dialogs</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1340__Java_Swing_JFileChooser.htm">JFileChooser</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1350__Java_Swing_JColorChooser.htm">JColorChooser</a></li><li class="tag">Utilities</li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1360__Java_Swing_JWindow.htm">JWindow</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1500__Java_Swing_Color.htm">Colors</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1510__Java_Swing_Borders.htm">Borders</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1520__Java_Swing_Font.htm">Font</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1530__Java_Swing_Thread.htm">Swing and Thread</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1540__Java_Swing_Look_Feel.htm">Look and Feel</a></li><li class="active"><a href="">Drag and Drop</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1600__Java_Swing_MDI.htm">MDI</a></li><li><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1700__Java_Swing_Toolkit.htm">Toolkit</a></li><li class="tag">java.awt.geom Package</li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.geom/AffineTransform/index.htm">AffineTransform</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.geom/Arc2D/index.htm">Arc2D</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.geom/Area/index.htm">Area</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.geom/CubicCurve2D/index.htm">CubicCurve2D</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.geom/Ellipse2D/index.htm">Ellipse2D</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.geom/GeneralPath/index.htm">GeneralPath</a></li><li class="tag">java.awt.font Package</li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.font/GlyphVector/index.htm">GlyphVector</a></li><li class="tag">java.awt.event Package</li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ActionEvent/index.htm">ActionEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ActionListener/index.htm">ActionListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/AdjustmentEvent/index.htm">AdjustmentEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/AdjustmentListener/index.htm">AdjustmentListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/AWTEventListener/index.htm">AWTEventListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ComponentAdapter/index.htm">ComponentAdapter</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ComponentEvent/index.htm">ComponentEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ComponentListener/index.htm">ComponentListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ContainerListener/index.htm">ContainerListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/FocusAdapter/index.htm">FocusAdapter</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/FocusEvent/index.htm">FocusEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/FocusListener/index.htm">FocusListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/HierarchyEvent/index.htm">HierarchyEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/HierarchyListener/index.htm">HierarchyListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/InputEvent/index.htm">InputEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ItemEvent/index.htm">ItemEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/ItemListener/index.htm">ItemListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/KeyAdapter/index.htm">KeyAdapter</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/KeyEvent/index.htm">KeyEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/KeyListener/index.htm">KeyListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/MouseAdapter/index.htm">MouseAdapter</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/MouseEvent/index.htm">MouseEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/MouseListener/index.htm">MouseListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/MouseMotionAdapter/index.htm">MouseMotionAdapter</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/MouseMotionListener/index.htm">MouseMotionListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/MouseWheelEvent/index.htm">MouseWheelEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/MouseWheelListener/index.htm">MouseWheelListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/WindowAdapter/index.htm">WindowAdapter</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/WindowEvent/index.htm">WindowEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/WindowFocusListener/index.htm">WindowFocusListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.event/WindowStateListener/index.htm">WindowStateListener</a></li><li class="tag">java.awt.dnd Package</li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.dnd/DnDConstants/index.htm">DnDConstants</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.dnd/DragGestureListener/index.htm">DragGestureListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.dnd/DragSource/index.htm">DragSource</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.dnd/DragSourceContext/index.htm">DragSourceContext</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.dnd/DragSourceListener/index.htm">DragSourceListener</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.dnd/DropTargetDropEvent/index.htm">DropTargetDropEvent</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.dnd/DropTargetListener/index.htm">DropTargetListener</a></li><li class="tag">java.awt.datatransfer Package</li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.datatransfer/Clipboard/index.htm">Clipboard</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.datatransfer/ClipboardOwner/index.htm">ClipboardOwner</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.datatransfer/DataFlavor/index.htm">DataFlavor</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt.datatransfer/Transferable/index.htm">Transferable</a></li><li class="tag">java.awt Package</li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/BasicStroke/index.htm">BasicStroke</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/BorderLayout/index.htm">BorderLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/CardLayout/index.htm">CardLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Color/index.htm">Color</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Cursor/index.htm">Cursor</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Desktop/index.htm">Desktop</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/DesktopManager/index.htm">DesktopManager</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/DisplayMode/index.htm">DisplayMode</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/EventQueue/index.htm">EventQueue</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/FlowLayout/index.htm">FlowLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/FocusTraversalPolicy/index.htm">FocusTraversalPolicy</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Font/index.htm">Font</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/FontMetrics/index.htm">FontMetrics</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/GradientPaint/index.htm">GradientPaint</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Graphics/index.htm">Graphics</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Graphics2D/index.htm">Graphics2D</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/GraphicsConfiguration/index.htm">GraphicsConfiguration</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/GraphicsDevice/index.htm">GraphicsDevice</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/GraphicsEnvironment/index.htm">GraphicsEnvironment</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/GridBagConstraints/index.htm">GridBagConstraints</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/GridBagLayout/index.htm">GridBagLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/GridLayout/index.htm">GridLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Image/index.htm">Image</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/ItemSelectable/index.htm">ItemSelectable</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/KeyboardFocusManager/index.htm">KeyboardFocusManager</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/LayoutManager/index.htm">LayoutManager</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/LayoutManager2/index.htm">LayoutManager2</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Point/index.htm">Point</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Rectangle/index.htm">Rectangle</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Robot/index.htm">Robot</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Shape/index.htm">Shape</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/SplashScreen/index.htm">SplashScreen</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/SystemColor/index.htm">SystemColor</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/SystemTray/index.htm">SystemTray</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/TexturePaint/index.htm">TexturePaint</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Toolkit/index.htm">Toolkit</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/Transparency/index.htm">Transparency</a></li><li><a href="http://www.java2s.com/Tutorials/Java/java.awt/TrayIcon/index.htm">TrayIcon</a></li><li class="tag">javax.swing Package</li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/AbstractAction/index.htm">AbstractAction</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/AbstractButton/index.htm">AbstractButton</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/AbstractCellEditor/index.htm">AbstractCellEditor</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/AbstractListModel/index.htm">AbstractListModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/AbstractSpinnerModel/index.htm">AbstractSpinnerModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/Action/index.htm">Action</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/ActionMap/index.htm">ActionMap</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/BorderFactory/index.htm">BorderFactory</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/BoundedRangeModel/index.htm">BoundedRangeModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/Box/index.htm">Box</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/BoxLayout/index.htm">BoxLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/ButtonGroup/index.htm">ButtonGroup</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/ButtonModel/index.htm">ButtonModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/CellEditor/index.htm">CellEditor</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/ComboBoxEditor/index.htm">ComboBoxEditor</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/ComboBoxModel/index.htm">ComboBoxModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/DefaultBoundedRangeModel/index.htm">DefaultBoundedRangeModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/DefaultCellEditor/index.htm">DefaultCellEditor</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/DefaultComboBoxModel/index.htm">DefaultComboBoxModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/DefaultListModel/index.htm">DefaultListModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/DefaultListSelectionModel/index.htm">DefaultListSelectionModel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/GrayFilter/index.htm">GrayFilter</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/GroupLayout/index.htm">GroupLayout</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/Icon/index.htm">Icon</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/ImageIcon/index.htm">ImageIcon</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/InputMap/index.htm">InputMap</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/InputVerifier/index.htm">InputVerifier</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JButton/index.htm">JButton</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JCheckBox/index.htm">JCheckBox</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JCheckBoxMenuItem/index.htm">JCheckBoxMenuItem</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JColorChooser/index.htm">JColorChooser</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JComboBox/index.htm">JComboBox</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JDesktopPane/index.htm">JDesktopPane</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JEditorPane/index.htm">JEditorPane</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JFileChooser/index.htm">JFileChooser</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JLabel/index.htm">JLabel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JList/index.htm">JList</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JMenu/index.htm">JMenu</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JMenuBar/index.htm">JMenuBar</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JMenuItem/index.htm">JMenuItem</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JPanel/index.htm">JPanel</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JPasswordField/index.htm">JPasswordField</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JProgressBar/index.htm">JProgressBar</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JRadioButton/index.htm">JRadioButton</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JSeparator/index.htm">JSeparator</a></li><li><a href="http://www.java2s.com/Tutorials/Java/javax.swing/JSpinner/index.htm">JSpinner</a></li></ul>          
+       </div>
+       <div class="col-sm-9 col-md-9">
+          <!--<div class="visible-xs"><button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Menu</button></div>-->
+          <form class="form-inline pull-right" action="http://www.google.com/cse" id="cse-search-box">
+             <fieldset>
+                <label class="control-label">
+                <input name="cx" value="partner-pub-1130008796007602:iri8be-v211" type="hidden">
+                <input name="ie" value="ISO-8859-1" type="hidden">        
+                <input placeholder="Custom Search" style="background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) no-repeat scroll left center; text-indent: 48px;" size="15" name="q" type="text">
+                <input name="sa" value="Search" type="submit">
+             </label></fieldset>
+          <input value="www.java2s.com/Tutorials/Java/Java_Swing/1550__Java_Swing_Drag_Drop.htm" name="siteurl" type="hidden"><input value="www.google.com" name="ref" type="hidden"><input name="ss" type="hidden"></form>
+          <script type="text/javascript" src="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/brand"></script>
+		  <div class="row"><div class="col-lg-12"><h1>Java Swing Tutorial - Java Swing Drag and Drop</h1><ul class="pager"><li class="previous"><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1540__Java_Swing_Look_Feel.htm">«&nbsp;Previous</a></li><li class="next"><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1600__Java_Swing_MDI.htm">Next&nbsp;»</a></li></ul><br><br><br><script type="text/javascript"><!--
+google_ad_client="pub-1130008796007602";google_ad_width=728;google_ad_height=90;google_ad_format="728x90_as";google_ad_type="text_image";google_ad_channel="";google_color_border="ffffff";google_color_bg="ffffff";google_color_link="003399";google_color_text="000000";google_color_url="75a3ed";
+//--></script><script type="text/javascript" src="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/show_ads.js"></script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="90" width="728"></iframe></ins></ins><br><br><br><br><p>
+Drag and drop (DnD) is a way to transfer data in an application. 
+</p>
+
+<p>
+DnD allows us to transfer data by dragging a component and dropping it onto another component. 
+</p>
+
+<p>
+The component dragged is called the drag source; 
+it supplies the data to be transferred. 
+</p>
+
+<p>
+The component dropped is called the drop target; it is the receiver of the data. 
+</p>
+
+<p>
+The data transfer is accomplished using a Transferable object. 
+</p>
+
+<p>
+Transferable is an interface in the java.awt.datatransfer package. 
+</p>
+
+<p>
+The Transferable interface contains the following three methods:
+</p>
+
+<pre>DataFlavor[] getTransferDataFlavors()
+boolean isDataFlavorSupported(DataFlavor flavor)
+Object getTransferData(DataFlavor flavor)  throws   UnsupportedFlavorException, IOException
+</pre>
+
+<p>
+To enable the dragging on the component
+</p>
+
+<pre>myComponent.setDragEnabled(true);
+</pre>
+
+<p>
+All text components (JFileChooser, JColorChooser, JList, JTree, and JTable) have built-in drag support for DnD. 
+</p>
+
+
+<p>
+For example, suppose we have
+a JTextField named nameFld and a JTextArea named descTxtArea. To start 
+using DnD between them, we need to write the following two lines of 
+code:
+</p>
+
+<pre>nameFld.setDragEnabled(true);
+descTxtArea.setDragEnabled(true);
+</pre>
+
+<p>
+We can select text in the JTextField, drag it, and drop it onto the JTextArea. The selected text in the JTextField
+is transferred to the JTextArea. we can also drag text from the JTextArea to the JTextField.
+</p>
+
+
+<p>
+Transfer Actions are represented by the constants declared in the TransferHandler class:
+</p>
+<ul>
+<li>TranferHandler.COPY</li>
+<li>TranferHandler.MOVE</li>
+<li>TranferHandler.COPY_OR_MOVE</li>
+<li>TranferHandler.LINK</li>
+<li>TranferHandler.NONE</li>
+</ul><div><br><br>
+<script type="text/javascript"><!--
+google_ad_client="pub-1130008796007602";
+google_ad_width=300;
+google_ad_height=250;
+google_ad_format="300x250_as";
+google_ad_type="text_image";
+google_ad_channel="";
+google_color_border="ffffff";
+google_color_bg="FFFFFF";
+google_color_link="0077cc";
+google_color_url="0077cc";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/show_ads.js"></script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="250" width="300"></iframe></ins></ins>
+<br><br></div><h2 id="Example">Example</h2><p>
+The following code shows how to use DnD to Transfer Data Between Swing Components
+
+</p>
+<pre><span class="r">import</span> java.awt.BorderLayout;
+<span class="r">import</span> java.awt.Container;
+<span class="r">import</span> java.awt.datatransfer.DataFlavor;
+<span class="r">import</span> java.awt.datatransfer.StringSelection;
+<span class="r">import</span> java.awt.datatransfer.Transferable;
+<span style="color:#bab9ba">/</span><span style="color:#9a99b9">/</span><span style="color:#bbbb9a">f</span><span style="color:#9babb9">r</span><span style="color:#99baa9">o</span><span style="color:#ab99b9">m</span><span style="color:#9a999b"> </span><span style="color:#9baabb"> </span><span style="color:#bbba9b">w</span><span style="color:#9b999b">w</span><span style="color:#9baaa9"> </span><span style="color:#ab99ab">w</span><span style="color:#9b9bab"> </span><span style="color:#aabbb9"> </span><span style="color:#abbabb">.</span><span style="color:#aaaba9">j</span><span style="color:#9bbb99"> </span><span style="color:#a9bbb9"> </span><span style="color:#9aa9bb">a</span><span style="color:#bba9aa">v</span><span style="color:#abaa9a"> </span><span style="color:#99aaa9"> </span><span style="color:#9b9abb">a</span><span style="color:#bba9ba"> </span><span style="color:#b9bb9b">2</span><span style="color:#a9ba9b"> </span><span style="color:#bb99b9">s</span><span style="color:#bb99ab"> </span><span style="color:#a9ba9a">.</span><span style="color:#bbbaab">c</span><span style="color:#bbba9b"> </span><span style="color:#ab9abb">o</span><span style="color:#bbaab9"> </span><span style="color:#bb9b9b"> </span><span style="color:#a9baaa">m</span>
+<span class="r">import</span> javax.swing.Box;
+<span class="r">import</span> javax.swing.DefaultListModel;
+<span class="r">import</span> javax.swing.DropMode;
+<span class="r">import</span> javax.swing.JComponent;
+<span class="r">import</span> javax.swing.JFrame;
+<span class="r">import</span> javax.swing.JLabel;
+<span class="r">import</span> javax.swing.JList;
+<span class="r">import</span> javax.swing.JScrollPane;
+<span class="r">import</span> javax.swing.JTextField;
+<span class="r">import</span> javax.swing.ListSelectionModel;
+<span class="r">import</span> javax.swing.SwingUtilities;
+<span class="r">import</span> javax.swing.TransferHandler;
+
+<span class="r">public</span> <span class="r">class</span> Main <span class="r">extends</span> JFrame {
+  <span class="r">private</span> JTextField newTextField = <span class="r">new</span> JTextField(10);
+  <span class="r">private</span> JList&lt;String&gt; sourceList = <span class="r">new</span> JList&lt;&gt;(<span class="r">new</span> DefaultListModel&lt;&gt;());
+  <span class="r">private</span> JList&lt;String&gt; destList = <span class="r">new</span> JList&lt;&gt;(<span class="r">new</span> DefaultListModel&lt;&gt;());
+  <span class="r">public</span> Main() {
+    
+    <span class="r">for</span> (<span class="r">int</span> i = 0; i &lt; 15; i++) {
+      ((DefaultListModel&lt;String&gt;) sourceList.getModel()).add(i, <span class="q">"A "</span> + i);
+      ((DefaultListModel&lt;String&gt;) destList.getModel()).add(i, <span class="q">"B "</span> + i);
+    }
+    Box nameBox = Box.createHorizontalBox();
+    nameBox.add(<span class="r">new</span> JLabel(<span class="q">"New:"</span>));
+    nameBox.add(newTextField);
+
+    Box sourceBox = Box.createVerticalBox();
+    sourceBox.add(<span class="r">new</span> JLabel(<span class="q">"Source"</span>));
+    sourceBox.add(<span class="r">new</span> JScrollPane(sourceList));
+
+    Box destBox = Box.createVerticalBox();
+    destBox.add(<span class="r">new</span> JLabel(<span class="q">"Destination"</span>));
+    destBox.add(<span class="r">new</span> JScrollPane(destList));
+
+    Box listBox = Box.createHorizontalBox();
+    listBox.add(sourceBox);
+    listBox.add(destBox);
+
+    Box allBox = Box.createVerticalBox();
+    allBox.add(nameBox);
+    allBox.add(listBox);
+
+    this.getContentPane().add(allBox, BorderLayout.CENTER);
+
+    sourceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    destList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+    newTextField.setDragEnabled(true);
+    sourceList.setDragEnabled(true);
+    destList.setDragEnabled(true);
+
+    sourceList.setDropMode(DropMode.INSERT);
+    destList.setDropMode(DropMode.INSERT);
+
+    sourceList.setTransferHandler(<span class="r">new</span> ListTransferHandler());
+    destList.setTransferHandler(<span class="r">new</span> ListTransferHandler());
+  }
+  <span class="r">public</span> <span class="r">static</span> <span class="r">void</span> main(String[] args) {
+    SwingUtilities.invokeLater(() -&gt; {
+      Main frame = <span class="r">new</span> Main();
+      frame.pack();
+      frame.setVisible(true);
+    });
+  }
+}
+<span class="r">class</span> ListTransferHandler <span class="r">extends</span> TransferHandler {
+  @Override
+  <span class="r">public</span> <span class="r">int</span> getSourceActions(JComponent c) {
+    <span class="r">return</span> TransferHandler.COPY_OR_MOVE;
+  }
+  @Override
+  <span class="r">protected</span> Transferable createTransferable(JComponent source) {
+    JList&lt;String&gt; sourceList = (JList&lt;String&gt;) source;
+    String data = sourceList.getSelectedValue();
+    Transferable t = <span class="r">new</span> StringSelection(data);
+    <span class="r">return</span> t;
+  }
+
+  @Override
+  <span class="r">protected</span> <span class="r">void</span> exportDone(JComponent source, Transferable data, <span class="r">int</span> action) {
+    @SuppressWarnings(<span class="q">"unchecked"</span>)
+    JList&lt;String&gt; sourceList = (JList&lt;String&gt;) source;
+    String movedItem = sourceList.getSelectedValue();
+    <span class="r">if</span> (action == TransferHandler.MOVE) {
+      DefaultListModel&lt;String&gt; listModel = (DefaultListModel&lt;String&gt;) sourceList
+          .getModel();
+      listModel.removeElement(movedItem);
+    }
+  }
+  @Override
+  <span class="r">public</span> <span class="r">boolean</span> canImport(TransferHandler.TransferSupport support) {
+    <span class="r">if</span> (!support.isDrop()) {
+      <span class="r">return</span> false;
+    }
+    <span class="r">return</span> support.isDataFlavorSupported(DataFlavor.stringFlavor);
+  }
+  @Override
+  <span class="r">public</span> <span class="r">boolean</span> importData(TransferHandler.TransferSupport support) {
+    <span class="r">if</span> (!this.canImport(support)) {
+      <span class="r">return</span> false;
+    }
+    Transferable t = support.getTransferable();
+    String data = null;
+    <span class="r">try</span> {
+      data = (String) t.getTransferData(DataFlavor.stringFlavor);
+      <span class="r">if</span> (data == null) {
+        <span class="r">return</span> false;
+      }
+    } <span class="r">catch</span> (Exception e) {
+      e.printStackTrace();
+      <span class="r">return</span> false;
+    }
+    JList.DropLocation dropLocation = (JList.DropLocation) support
+        .getDropLocation();
+    <span class="r">int</span> dropIndex = dropLocation.getIndex();
+    JList&lt;String&gt; targetList = (JList&lt;String&gt;) support.getComponent();
+    DefaultListModel&lt;String&gt; listModel = (DefaultListModel&lt;String&gt;) targetList
+        .getModel();
+    <span class="r">if</span> (dropLocation.isInsert()) {
+      listModel.add(dropIndex, data);
+    } <span class="r">else</span> {
+      listModel.set(dropIndex, data);
+    }
+    <span class="r">return</span> true;
+  }
+}
+</pre><div><br><br>
+<script type="text/javascript"><!--
+google_ad_client="pub-1130008796007602";
+google_ad_width=300;
+google_ad_height=250;
+google_ad_format="300x250_as";
+google_ad_type="text_image";
+google_ad_channel="";
+google_color_border="ffffff";
+google_color_bg="FFFFFF";
+google_color_link="0077cc";
+google_color_url="0077cc";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="Java%20Swing%20Tutorial%20-%20Java%20Swing%20Drag%20and%20Drop_files/show_ads.js"></script><ins id="aswift_2_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="250" width="300"></iframe></ins></ins>
+<br><br></div><ul class="pager"><li class="button pull-right"><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1600__Java_Swing_MDI.htm">Next&nbsp;»</a></li><li class="button pull-right"><a href="http://www.java2s.com/Tutorials/Java/Java_Swing/1540__Java_Swing_Look_Feel.htm">«&nbsp;Previous</a></li></ul></div></div>
+       </div>
+   </div>
+   <footer>
+      <p class="pull-right"><a href="http://www.java2s.com/">java2s.com</a>  &nbsp;|&nbsp;Email:info at java2s.com&nbsp;|&nbsp;© Demo Source and Support. All rights reserved.</p>
+   </footer>	
+</div>
+
+
+</body></html>
